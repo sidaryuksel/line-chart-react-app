@@ -1,0 +1,8 @@
+body {
+    font-family: "Baloo Thambi 2";
+};
+
+.date-picker {
+    float: left;
+    text-align: left;
+}

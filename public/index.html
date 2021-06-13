@@ -15,6 +15,10 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
+    <link rel="stylesheet" href="https://mode.github.io/alamode/alamode.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.3/d3-tip.min.js"></script>
+    <script src="https://mode.github.io/alamode/alamode.min.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -39,5 +43,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+
+      alamode.chartAnnotations(
+        {
+          chart_id: "chart_27ff7ecf3359",
+          query_name: "Trips",
+          x_axis_column: "week",
+          comment_values: ["May","May","Jul","Jul"],
+          comments: ["Thanksgiving","Thanksgiving","Xmas","Xmas"],
+          orientations: ["v","v","v","v"]
+        }
+      )
+      
+      </script>
   </body>
 </html>
