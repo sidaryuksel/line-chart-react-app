@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Row, Col, Container } from 'reactstrap';
-import '../style.css';
+import { Button} from 'reactstrap';
 
 const Legend = () => {
     const urlPages = ['ytube.page', 'io.deals', 'amzn.how', 'dev.care', 'url.cafe'];
@@ -21,7 +20,7 @@ const Legend = () => {
 
     return (
         <div className='container' style={{ marginLeft: '56px' }}>
-            <Button className="legend" onClick={onButtonClick}>Legend</Button><hr />
+            <Button className="legend" onClick={onButtonClick}>Legend</Button>
             <div className='row align-items-start' >
                 {clicked ? renderUrl : null}
             </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import {DateRangePicker} from 'react-dates';
-import { Button } from 'reactstrap';
 
 class DatePick extends React.Component {
     constructor(props) {
