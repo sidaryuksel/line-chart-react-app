@@ -1,18 +1,15 @@
 import React from 'react';
-import {DateRangePicker} from 'react-dates';
+import { DateRangePicker } from 'react-dates';
+import DateFilters from './DateFilters';
+import CaretDownFill from '../CaretDownFill.svg';
 
-class DatePick extends React.Component {
+class DatePick extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
             startDate: null,
             endDate: null
         }
-    }
-
-    onDatesChange(e) {
-        console.log(this.state.startDate);
-        console.log(this.state.endDate);
     }
 
     render() {
@@ -25,8 +22,15 @@ class DatePick extends React.Component {
                     endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
                     onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
                     focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                    onFocusChange={focusedInput => {this.setState({ focusedInput })}} // PropTypes.func.isRequired,
+                    onFocusChange={focusedInput => { this.setState({ focusedInput }) }} // PropTypes.func.isRequired,
+                    customArrowIcon="-" // PropTypes.node,
+                    small={true}
+                    block={true}
+                    noBorder={true}
+                    customInputIcon={<img src={CaretDownFill} alt=''/>}
+                    inputIconPosition="after"
                 />
+                <DateFilters />
             </div>
         );
     };

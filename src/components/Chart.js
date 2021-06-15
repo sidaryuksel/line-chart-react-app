@@ -1,5 +1,5 @@
 import React from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
   { name: '1 Jan', dataset1: 400, dataset2: 247 },
@@ -52,25 +52,12 @@ const data = [
   { name: '4 Dec', dataset1: 770, dataset2: 455 }
 ];
 
-const alamode = () => {
-  alamode.chartAnnotations(
-    {
-      chart_id: "chart_27ff7ecf3359",
-      query_name: "data",
-      x_axis_column: "dataset1",
-      comment_values: ["1 Sep", "2May", "3 Feb", "4 Aug"],
-      comments: ["Thanksgiving", "Thanksgiving", "Xmas", "Xmas"],
-      orientations: ["v", "v", "v", "v"]
-    }
-  )
-}
-
 const Chart = () => {
 
   return (
     <div>
       <ResponsiveContainer width="100%" aspect={4}>
-        <AreaChart
+        <LineChart
           width={500}
           height={300}
           data={data}
@@ -80,15 +67,14 @@ const Chart = () => {
             left: 20,
             bottom: 5,
           }}
-          lineHeight={'20px'}
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip contentStyle={{ fontSize: 11, borderRadius: '1.5rem', lineHeight: 0.6, letterSpacing: '0.5px' }} labelStyle={{ color: 'darkgreen', textAlign: 'center' }} />
-          <Area type="monotone" dataKey="dataset1" stroke="#82ca9d" fill="#f4feef" activeDot={{ r: 5 }} />
-          <Area type="monotone" dataKey="dataset2" stroke="#8884d8" fill="#dedefe" activeDot={{ r: 5 }} />
-        </AreaChart>
+          <Line dot={false} type="monotone" dataKey="dataset1" stroke="#82ca9d" strokeWidth={3} activeDot={{ r: 5 }} />
+          <Line dot={false} type="monotone" dataKey="dataset2" stroke="#8884d8" strokeWidth={3} activeDot={{ r: 5 }} />
+        </LineChart>
 
       </ResponsiveContainer>
 

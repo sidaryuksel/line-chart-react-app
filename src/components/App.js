@@ -3,9 +3,9 @@ import "@fontsource/baloo-thambi-2";
 
 import Chart from "./Chart";
 import DatePick from "./DatePick";
-import DateFilters from "./DateFilters";
 import Legend from './Legend';
-import '../style.css';
+
+
 
 const App = () => {
   return (
@@ -19,7 +19,6 @@ const App = () => {
           </div>
         </div>
         <Chart />
-        <DateFilters />
     </div>
   );
 }

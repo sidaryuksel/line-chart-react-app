@@ -9,14 +9,19 @@ body {
 .url-page {
     margin-top: 20%;
     margin-bottom: 15px;
-    border-radius: 1.1rem;    
-    color: rgb(205, 255, 253);
-    background-image: linear-gradient(120deg, rgb(87, 81, 145) 0%, rgb(192, 75, 71) 100%);
+    border-radius: 1.1rem;
+    border: transparent;    
+    color: gray;
+    background-color: lightgray;
 }
-
 .legend {
     margin: '40px';
     border-radius: 1.1rem;
-    color: rgb(240, 214, 255);
+    border: transparent;    
+    color: rgb(239, 241, 243);
     background-image: linear-gradient(120deg, rgb(85, 161, 190) 0%, rgb(84, 175, 42) 100%);
+}
+    
+.line-chart {
+    grid: 1.5rem;
 }
