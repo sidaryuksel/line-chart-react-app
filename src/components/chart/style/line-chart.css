@@ -1,0 +1,76 @@
+.line {
+  fill: none;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+  stroke: #fff;
+}
+
+.focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+.chart-tooltip {
+  z-index: 5;
+  position: fixed;
+  padding: 5px 10px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  visibility: hidden;
+  text-align: left;
+  min-width: 80px;
+}
+
+.chart-tooltip .date {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.chart-tooltip .property {
+  font-size: 12px;
+}
+
+.chart-tooltip .property .label {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+  stroke-dasharray: 5;
+}
+
+.annotation-item {
+  z-index: 3;
+  position: fixed;
+  padding: 2px 5px;
+  background-color: #9593d8;
+  color: #fff;
+  display: flex;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+  align-items: center;
+}
+
+.annotation-item .action .svg-inline--fa{
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.chart-wrapper {
+  display: flex;
+}
