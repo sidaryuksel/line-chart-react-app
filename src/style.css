@@ -16,7 +16,7 @@ body {
 }
 .legend {
     margin: '40px';
-    border-radius: 1.1rem;
+    border-radius: 1.3rem;
     border: transparent;    
     color: rgb(239, 241, 243);
     background-image: linear-gradient(120deg, rgb(85, 161, 190) 0%, rgb(84, 175, 42) 100%);

@@ -1,7 +1,7 @@
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import React, { FunctionComponent } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, ResponsiveContainer } from 'recharts';
 
-const data = [
+const lineChartReport = [
   { name: '1 Jan', dataset1: 400, dataset2: 247 },
   { name: '1 Feb', dataset1: 300, dataset2: 139 },
   { name: '1 Mar', dataset1: 200, dataset2: 980 },
@@ -54,13 +54,55 @@ const data = [
 
 const Chart = () => {
 
+  const CustomizedLabel = (props) => {
+    const { x, y, stroke, value } = props;
+
+    if (Math.random() < 0.8) {
+      return null;
+    }
+
+    return (
+      <g>
+        <rect
+          width={120}
+          height={20}
+          x={x - 60} //Should be x - Annotation width / 2
+          y={y - 30} // Should be x - Annotation height
+          dy={-4}
+          fill={"#8884d8"}
+          fontSize={10}
+          textAnchor="middle"
+        ></rect>
+        <text x={x - 12} y={y - 15} fill={stroke}>{value}</text>
+      </g>
+    );
+  };
+
+  const CustomizedAxisTick = (props) => {
+    const { x, y, payload } = props;
+
+    return (
+      <g transform={`translate(${x}, ${y})`}>
+        <text
+          x={0}
+          y={0}
+          dy={16}
+          textAnchor="end"
+          fill="#666"
+          transform="rotate(-35)"
+        >
+          {payload.value}
+        </text>
+      </g>
+    )
+  }
   return (
     <div>
       <ResponsiveContainer width="100%" aspect={4}>
         <LineChart
           width={500}
           height={300}
-          data={data}
+          data={lineChartReport}
           margin={{
             top: 5,
             right: 30,
@@ -69,15 +111,15 @@ const Chart = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
           <YAxis />
           <Tooltip contentStyle={{ fontSize: 11, borderRadius: '1.5rem', lineHeight: 0.6, letterSpacing: '0.5px' }} labelStyle={{ color: 'darkgreen', textAlign: 'center' }} />
           <Line dot={false} type="monotone" dataKey="dataset1" stroke="#82ca9d" strokeWidth={3} activeDot={{ r: 5 }} />
-          <Line dot={false} type="monotone" dataKey="dataset2" stroke="#8884d8" strokeWidth={3} activeDot={{ r: 5 }} />
+          <Line dot={false} type="monotone" dataKey="dataset2" stroke="#8884d8" strokeWidth={3} activeDot={{ r: 5 }}>
+            <LabelList content={<CustomizedLabel />} />
+          </Line>
         </LineChart>
-
       </ResponsiveContainer>
-
     </div>
 
   )

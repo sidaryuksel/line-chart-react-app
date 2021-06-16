@@ -1,11 +1,9 @@
 import React from "react";
 import "@fontsource/baloo-thambi-2";
 
-import Chart from "./Chart";
 import DatePick from "./DatePick";
 import Legend from './Legend';
-
-
+import Chart from "./Chart";
 
 const App = () => {
   return (
