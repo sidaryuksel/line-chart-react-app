@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, ResponsiveContainer } from 'recharts';
 import AnnotationAxisTick from './annotation/AnnotationAxisTick';
 import AnnotationLabel from './annotation/AnnotationLabel';
@@ -6,7 +6,6 @@ import lineChartReport from './report/lineChartReport';
 import ModalPage from './ModalPage';
 
 const Chart = () => {
-	const [ annotation, setAnnotation ] = useState('');
 	const [ clicked, setClicked ] = useState(false);
 	const [ selecetedOne, setSelectedOne ] = useState({});
 	const [ annotations, setAnnotations ] = useState([]);
@@ -15,14 +14,6 @@ const Chart = () => {
 		setSelectedOne(payload);
 		setClicked(!clicked);
 	};
-
-	useEffect(
-		() => {
-			const annotationList = [ ...annotations, annotation ];
-			setAnnotations(annotationList);
-		},
-		[ annotation ]
-	);
 
 	return (
 		<div className="margin-top">
@@ -86,9 +77,8 @@ const Chart = () => {
 			{clicked ? (
 				<ModalPage
 					selecetedOne={selecetedOne}
-					annotation={annotation}
 					clicked={clicked}
-					onTextSubmit={setAnnotation}
+					onTextSubmit={(annotation) => setAnnotations([...annotations, annotation])}
 				/>
 			) : null}
 		</div>

@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const AnnotationLabel = (props) => {
 	const { x, y, stroke, value, index, annotations } = props;
 
 	console.log('annotations', annotations);
 
-	if (annotations.length < 2) return null;
-
-  const annotationList = annotations.filter((val) => val.length!== 0);
-	const annotation = annotationList.find((val) => val.data.index === index && val.data[val.data.dataKey] === value);
+	const annotation = annotations.find((val) => val.data.index === index && val.data[val.data.dataKey] === value);
 	
   
   if(!annotation) return null;
