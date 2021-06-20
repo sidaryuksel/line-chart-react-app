@@ -1,16 +1,17 @@
 import React from 'react';
 
 const AnnotationLabel = (props) => {
-	const { x, y, stroke, value, index, annotations } = props;
+	const { x, y, stroke, fill, value, index, annotations } = props;
 
 	console.log('annotations', annotations);
 
 	const annotation = annotations.find((val) => val.data.index === index && val.data[val.data.dataKey] === value);
-	
   
   if(!annotation) return null;
-	const label = annotation.note.label;
+
   console.log('annotation', annotation)
+  console.log('stroke',fill);
+
 
 	return (
 		<g>
@@ -25,7 +26,7 @@ const AnnotationLabel = (props) => {
 				textAnchor="middle"
 			/>
 			<text x={x - 12} y={y - 15} fill={stroke}>
-				{label}
+				{annotation.note.label}
 			</text>
 		</g>
 	);

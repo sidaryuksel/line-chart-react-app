@@ -20,10 +20,10 @@ const Chart = () => {
 			<ResponsiveContainer width="100%" aspect={4}>
 				<LineChart
 					width={700}
-					height={300}
+					height={350}
 					data={lineChartReport}
 					margin={{
-						top: 5,
+						top: 30,
 						right: 30,
 						left: 20,
 						bottom: 5
@@ -33,8 +33,8 @@ const Chart = () => {
 					<XAxis dataKey="name" height={60} tick={<AnnotationAxisTick />} />
 					<YAxis />
 					<Tooltip
-						contentStyle={{ fontSize: 11, borderRadius: '1.5rem', lineHeight: 0.6, letterSpacing: '0.5px' }}
-						labelStyle={{ color: 'darkgreen', textAlign: 'center' }}
+						contentStyle={{ fontSize: 11, borderRadius: '0.7rem', lineHeight: 0.6, letterSpacing: '0.5px', backgroundColor: "#000" }}
+						labelStyle={{ color: 'lightgreen', textAlign: 'center' }}
 					/>
 					<Line
 						dot={false}
@@ -47,6 +47,7 @@ const Chart = () => {
 						<LabelList
 							content={
 								<AnnotationLabel
+                  stroke="#82ca9d"
 									dataKey="dataset1"
 									annotations={annotations}
 									selecetedOne={selecetedOne}
@@ -65,7 +66,8 @@ const Chart = () => {
 						<LabelList
 							content={
 								<AnnotationLabel
-									dataKey="dataset2"
+                stroke="#8884d8"
+                dataKey="dataset2"
 									annotations={annotations}
 									selecetedOne={selecetedOne}
 								/>
