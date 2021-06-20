@@ -1,22 +1,17 @@
 import React from "react";
 import "@fontsource/baloo-thambi-2";
-
-import DatePick from "./DatePick";
+import DateFilters from "./DateFilters";
 import Legend from './Legend';
 import Chart from "./Chart";
+import Modal from 'react-modal';
 
+Modal.setAppElement("#root");
 const App = () => {
   return (
-    <div className="container" style={{marginTop: '40px'}}>
-        <div className="row align-items-start">
-          <div className="col-7">
-            <Legend />
-          </div>
-          <div className="col-5">
-            <DatePick />
-          </div>
-        </div>
-        <Chart />
+    <div className="margin-top right-align margin-right">
+      <Legend />
+      <DateFilters />
+      <Chart />
     </div>
   );
 }

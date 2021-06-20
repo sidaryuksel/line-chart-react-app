@@ -6,20 +6,19 @@ const Legend = () => {
     const [clicked, setClicked] = useState(false);
 
     const onButtonClick = (e) => {
-        console.log(clicked);
         setClicked(!clicked);
     };
 
-    const renderUrl = urlPages.map((urlPage) => {
+    const renderUrl = urlPages.map((urlPage, key) => {
                 return (
-                    <div className='col'>
-                        <Button key={urlPage} className='url-page'>{urlPage}</Button>
+                    <div key={key} className='col'>
+                        <Button className='url-page'>{urlPage}</Button>
                     </div>
                 )
             });
 
     return (
-        <div className='container' style={{ marginLeft: '56px' }}>
+        <div className='margin-bottom margin-right' style={{ marginLeft: '56px' }}>
             <Button className="legend" onClick={onButtonClick}>Legend</Button>
             <div className='row align-items-start' >
                 {clicked ? renderUrl : null}

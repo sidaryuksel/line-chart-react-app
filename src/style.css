@@ -1,9 +1,10 @@
 body {
     font-family: "Baloo Thambi 2";
+    width:100%;
 }
 
-.mrg-top {
-    margin-top: '20px';
+.mrg-btm {
+    margin-bottom: 1.5rem;
 }
 
 .url-page {
@@ -24,4 +25,24 @@ body {
     
 .line-chart {
     grid: 1.5rem;
+}
+
+.right-align { 
+    text-align: right;
+}
+
+.margin-top {
+    margin-top: 50px;
+}
+
+.margin-right {
+    margin-right: 40px;
+}
+
+.float-right {
+    float:right;
+}
+
+.margin-bottom{
+    margin-bottom: 20px;
 }
