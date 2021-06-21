@@ -1,48 +1,69 @@
 body {
-    font-family: "Baloo Thambi 2";
-    width:100%;
+	font-family: "Baloo Thambi 2";
+	width: 100%;
 }
 
 .mrg-btm {
-    margin-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
 }
 
 .url-page {
-    margin-top: 20%;
-    margin-bottom: 15px;
-    border-radius: 1.1rem;
-    border: transparent;    
-    color: gray;
-    background-color: lightgray;
+	margin-top: 20%;
+	margin-bottom: 15px;
+	border-radius: 1.1rem;
+	border: transparent;
+	color: gray;
+	background-color: lightgray;
 }
 .legend {
-    margin: '40px';
-    border-radius: 1.3rem;
-    border: transparent;    
-    color: rgb(239, 241, 243);
-    background-image: linear-gradient(120deg, rgb(85, 161, 190) 0%, rgb(84, 175, 42) 100%);
-}
-    
-.line-chart {
-    grid: 1.5rem;
+	margin: '40px';
+	border-radius: 1.3rem;
+	border: transparent;
+	color: rgb(239, 241, 243);
+	background-image: linear-gradient(90deg, rgb(52, 135, 243) 0%, rgb(66, 156, 25) 100%);
 }
 
-.right-align { 
-    text-align: right;
+.line-chart {
+	grid: 1.5rem;
+}
+
+.right-align {
+	text-align: right;
 }
 
 .margin-top {
-    margin-top: 50px;
+	margin-top: 50px;
 }
 
 .margin-right {
-    margin-right: 6%;
+	margin-right: 6%;
 }
 
 .float-right {
-    float:right;
+	float: right;
 }
 
-.margin-bottom{
-    margin-bottom: 20px;
+.margin-bottom {
+	margin-bottom: 20px;
+}
+
+.annotation-item {
+	z-index: 3;
+	position: fixed;
+	padding: 2px 5px;
+	background-color: #9593d8;
+	color: #fff;
+	display: flex;
+	border-radius: 2px;
+	font-size: 14px;
+	transition: opacity 0.5s linear;
+	opacity: 0;
+	align-items: center;
+}
+
+.annotation-item .action .svg-inline--fa {
+	margin-left: 5px;
+	cursor: pointer;
+	font-size: 0.5rem;
+    width: 0.5rem;
 }

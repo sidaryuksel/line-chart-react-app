@@ -1,33 +1,38 @@
 import React from 'react';
+import { RiDeleteBin5Line } from 'react-icons/ri';
 
 const AnnotationLabel = (props) => {
-	const { x, y, stroke, fill, value, index, annotations } = props;
-
-	console.log('annotations', annotations);
+	const { x, y, stroke, value, index, annotations } = props;
 
 	const annotation = annotations.find((val) => val.data.index === index && val.data[val.data.dataKey] === value);
-  
-  if(!annotation) return null;
 
-  console.log('annotation', annotation)
-  console.log('stroke',fill);
+	if (!annotation) return null;
 
+	const onIconDelete = (annotationDel) => {
+		const newAnnotations = annotations.filter(
+			(item) => item.note.label !== annotationDel && item.data.name !== annotationDel.data.name
+		);
 
+		props.onIconClick(newAnnotations);
+	};
 	return (
 		<g>
 			<rect
 				width={120}
-				height={20}
+				height={30}
 				x={x - 60} //Should be x - Annotation width / 2
-				y={y - 30} // Should be x - Annotation height
+				y={y - 20} // Should be x - Annotation height
 				dy={-4}
 				fill={'#fd3'}
 				fontSize={10}
 				textAnchor="middle"
 			/>
-			<text x={x - 12} y={y - 15} fill={stroke}>
+
+			<text x={x - 55} y={y - 1} fill={stroke}>
 				{annotation.note.label}
 			</text>
+			<RiDeleteBin5Line x={x+40} y={y-15} onClick={() => onIconDelete(annotation)} value={annotation} style={{ color: stroke, cursor: 'pointer' }} />
+
 		</g>
 	);
 };

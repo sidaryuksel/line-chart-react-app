@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import {RiDeleteBin5Line} from 'react-icons/ri';
+
 
 const ModalPage = (props) => {
 	const [ text, setText ] = useState('');
@@ -33,6 +35,7 @@ const ModalPage = (props) => {
 	return (
 		<div style={{ maxWidth: '100%' }}>
 			<Modal
+                contentLabel="Enter Annotation"
 				shouldCloseOnOverlayClick={true}
 				isOpen={clicked}
 				onRequestClose={() => setClicked(!clicked)}
@@ -44,8 +47,9 @@ const ModalPage = (props) => {
 					value={text}
 					onChange={(val) => onTextHandle(val)}
 					style={{ marginBottom: '6px' }}
-				/>
-				<br />
+				/>			<RiDeleteBin5Line />
+
+				<br /> 
 				<button onClick={(e) => onTextSubmit(e)}>Submit</button>
 			</Modal>
 		</div>
