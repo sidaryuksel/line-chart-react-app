@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
-import * as d3 from 'd3';
+import React, { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, ResponsiveContainer } from 'recharts';
 import AnnotationAxisTick from './annotation/AnnotationAxisTick';
 import AnnotationLabel from './annotation/AnnotationLabel';
@@ -11,7 +10,7 @@ const Chart = () => {
 	const [ clicked, setClicked ] = useState(false);
 	const [ selecetedOne, setSelectedOne ] = useState({});
 	const [ annotations, setAnnotations ] = useState([]);
-
+console.log('chart annotations:', )
 
 	const onHandleClick = (payload) => {
 		setSelectedOne(payload);

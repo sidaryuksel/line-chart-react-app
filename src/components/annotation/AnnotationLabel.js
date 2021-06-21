@@ -10,7 +10,7 @@ const AnnotationLabel = (props) => {
 
 	const onIconDelete = (annotationDel) => {
 		const newAnnotations = annotations.filter(
-			(item) => item.note.label !== annotationDel && item.data.name !== annotationDel.data.name
+			(item) => item.note.label !== annotationDel.note.label || item.note.title !== annotationDel.note.title
 		);
 
 		props.onIconClick(newAnnotations);
@@ -25,14 +25,21 @@ const AnnotationLabel = (props) => {
 				dy={-4}
 				fill={'#fd3'}
 				fontSize={10}
+				stroke= {stroke}
+				strokeWidth={1.2}
 				textAnchor="middle"
 			/>
 
-			<text x={x - 55} y={y - 1} fill={stroke}>
+			<text x={x - 43} y={y - 1} fill={stroke}>
 				{annotation.note.label}
 			</text>
-			<RiDeleteBin5Line x={x+40} y={y-15} onClick={() => onIconDelete(annotation)} value={annotation} style={{ color: stroke, cursor: 'pointer' }} />
-
+			<RiDeleteBin5Line
+				x={x - 60}
+				y={y - 15}
+				onClick={() => onIconDelete(annotation)}
+				value={annotation}
+				style={{ color: stroke, cursor: 'pointer' }}
+			/>
 		</g>
 	);
 };

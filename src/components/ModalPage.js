@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import {RiDeleteBin5Line} from 'react-icons/ri';
-
+import { RiDeleteBin5Line } from 'react-icons/ri';
 
 const ModalPage = (props) => {
 	const [ text, setText ] = useState('');
@@ -29,17 +28,30 @@ const ModalPage = (props) => {
 			dx: selectedOne.cx
 		};
 		setClicked(!clicked);
-		props.onTextSubmit(annotation);
+		if (annotation.note.label) {
+			props.onTextSubmit(annotation);
+		}
+	};
+
+	const customStyles = {
+		content: {
+			top: '50%',
+			left: '50%',
+			right: 'auto',
+			bottom: 'auto',
+			marginRight: '-50%',
+			transform: 'translate(-40%, -40%)'
+		}
 	};
 
 	return (
 		<div style={{ maxWidth: '100%' }}>
 			<Modal
-                contentLabel="Enter Annotation"
+				contentLabel="Enter Annotation"
 				shouldCloseOnOverlayClick={true}
 				isOpen={clicked}
 				onRequestClose={() => setClicked(!clicked)}
-				style={{ overlay: { top: '200px', left: '450px', right: '450px', bottom: '380px' } }}
+				style={customStyles}
 			>
 				<input
 					type="text"
@@ -47,9 +59,8 @@ const ModalPage = (props) => {
 					value={text}
 					onChange={(val) => onTextHandle(val)}
 					style={{ marginBottom: '6px' }}
-				/>			<RiDeleteBin5Line />
+				/>
 
-				<br /> 
 				<button onClick={(e) => onTextSubmit(e)}>Submit</button>
 			</Modal>
 		</div>
