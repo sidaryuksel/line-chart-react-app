@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { RiDeleteBin5Line } from 'react-icons/ri';
 
 const ModalPage = (props) => {
 	const [ text, setText ] = useState('');

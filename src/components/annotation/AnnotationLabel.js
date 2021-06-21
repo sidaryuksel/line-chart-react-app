@@ -10,7 +10,7 @@ const AnnotationLabel = (props) => {
 
 	const onIconDelete = (annotationDel) => {
 		const newAnnotations = annotations.filter(
-			(item) => item.note.label !== annotationDel.note.label || item.note.title !== annotationDel.note.title
+			(item) => item.note.label !== annotationDel.note.label || item.note.title !== annotationDel.note.title || item.data.dataKey !== annotationDel.data.dataKey
 		);
 
 		props.onIconClick(newAnnotations);
